@@ -48,9 +48,9 @@ public class patientLogin {
 	}
 
 	public static void main(String[] args) {
-		patientLogin kaaspro = new patientLogin();
-		kaaspro.login1();
-		//kaaspro.Aftersuite();
+		patientLogin login = new patientLogin();
+		login.login1();
+		login.Aftersuite();
 	}
 
 	@AfterSuite
