@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class TestCase8 {
-
+public class TestCase15 {
 
 	static WebDriver driver;
 	static String url = "https://localhost:8443/";
@@ -35,14 +35,20 @@ public class TestCase8 {
 		WebElement PersonalDetail = driver
 				.findElement(By.xpath("//*[@id='person-name-email']/div/div/div[2]/table/tbody/tr/td[1]"));
 		PersonalDetail.click();
-		//WebElement MobileNumber = driver.findElement(By.xpath("//*[@id='phone']"));
-		WebElement tooltip= driver.findElement(By.xpath("//*[@id='form']/div[2]/div[9]/div"));
-		 String tooltipText = tooltip.getAttribute("title"); 
-		 if(tooltipText.contains("Enter Patient's Mobile Number"))
-			{
-				System.out.println("Enter Patient's Mobile Number tooltip is present");
-			}
-		 else{System.out.println("Unable to find tooltip for Mobile Number");}
-}
+		WebElement MoreButton = driver.findElement(By.xpath("//*[@id='add_more']/div/button[2]"));
+		MoreButton.click();
+		WebElement MoreButtonTitle = driver.findElement(By.xpath("//*[@id='a-title']"));
+		MoreButtonTitle.click();
+		WebElement Title = driver.findElement(By.xpath("//*[@id='title']"));
+		Select TitleDropDown= new Select(driver.findElement(By.xpath("//*[@id='title']")));
+		TitleDropDown.selectByVisibleText("Mrs");
+		WebElement TitleCancelButton = driver.findElement(By.xpath("//*[@id='p_title']/div[2]"));
+		TitleCancelButton.click();
+		String alertText=driver.switchTo().alert().getText();
+		if(alertText.equalsIgnoreCase("Active data exists, double click to remove field")){
+		System.out.println(alertText);}
+		else{System.out.println("Not found");}
+		//*[@id="--child--message--"]/div
+	}
 
 }

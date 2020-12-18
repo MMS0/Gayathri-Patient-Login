@@ -7,8 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestCase8 {
-
+public class TestCase9 {
 
 	static WebDriver driver;
 	static String url = "https://localhost:8443/";
@@ -35,14 +34,16 @@ public class TestCase8 {
 		WebElement PersonalDetail = driver
 				.findElement(By.xpath("//*[@id='person-name-email']/div/div/div[2]/table/tbody/tr/td[1]"));
 		PersonalDetail.click();
-		//WebElement MobileNumber = driver.findElement(By.xpath("//*[@id='phone']"));
-		WebElement tooltip= driver.findElement(By.xpath("//*[@id='form']/div[2]/div[9]/div"));
+		//WebElement ID = driver.findElement(By.xpath("//*[@id='national-id']"));
+		WebElement tooltip= driver.findElement(By.xpath("//*[@id='national-id']"));
 		 String tooltipText = tooltip.getAttribute("title"); 
-		 if(tooltipText.contains("Enter Patient's Mobile Number"))
+		 if(tooltipText.contains("Enter national ID like SSN, driving license, passport number or any ID"))
 			{
-				System.out.println("Enter Patient's Mobile Number tooltip is present");
+				System.out.println("Enter national ID like SSN, driving license, passport number or any ID tooltip is present");
 			}
-		 else{System.out.println("Unable to find tooltip for Mobile Number");}
+		 else{System.out.println("Unable to find tooltip for ID");}
 }
-
+		
+		
+	
 }

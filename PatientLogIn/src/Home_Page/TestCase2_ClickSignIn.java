@@ -26,5 +26,4 @@ public class TestCase2_ClickSignIn {
 	passwordtextbox.sendKeys("1");
 	WebElement Signinbutton = driver.findElement(By.xpath("//div[@class='col-xs-10 center-cont']"));
 	Signinbutton.click();
-//screenshot
 }}

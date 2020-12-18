@@ -7,8 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestCase8 {
-
+public class TestCase12 {
 
 	static WebDriver driver;
 	static String url = "https://localhost:8443/";
@@ -35,14 +34,15 @@ public class TestCase8 {
 		WebElement PersonalDetail = driver
 				.findElement(By.xpath("//*[@id='person-name-email']/div/div/div[2]/table/tbody/tr/td[1]"));
 		PersonalDetail.click();
-		//WebElement MobileNumber = driver.findElement(By.xpath("//*[@id='phone']"));
-		WebElement tooltip= driver.findElement(By.xpath("//*[@id='form']/div[2]/div[9]/div"));
-		 String tooltipText = tooltip.getAttribute("title"); 
-		 if(tooltipText.contains("Enter Patient's Mobile Number"))
-			{
-				System.out.println("Enter Patient's Mobile Number tooltip is present");
-			}
-		 else{System.out.println("Unable to find tooltip for Mobile Number");}
-}
+		WebElement MoreButton = driver.findElement(By.xpath("//*[@id='add_more']/div/button[2]"));
+		MoreButton.click();
+		WebElement MoreButtonTitle = driver.findElement(By.xpath("//*[@id='a-title']"));
+		MoreButtonTitle.click();
+		WebElement Tite = driver.findElement(By.xpath("//*[@id='title']"));
+		if (Tite.isDisplayed()) {
+			System.out.println("Tite is displayed successfully");
+		} else {
+			System.out.println("Not Displayed Title");
+	}
 
-}
+	}}
